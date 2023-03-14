@@ -1,4 +1,35 @@
+import axios from "axios";
+
+
 const Card = (article) => {
+
+  const newCard = document.createElement('div');
+  const divHeadline = document.createElement('div');
+  const divAuthor = document.createElement('div');
+  const divImgContainer = document.createElement('div');
+  const image = document.createElement('img');
+  const name = document.createElement('span');
+
+  newCard.classList.add('card');
+  divHeadline.classList.add('headline');
+  divAuthor.classList.add('author');
+  divImgContainer.classList.add('img-container');
+
+  newCard.appendChild(divHeadline);
+  newCard.appendChild(divAuthor);
+  divAuthor.appendChild(divImgContainer);
+  divImgContainer.appendChild(image);
+  divAuthor.appendChild(name);
+  
+  divHeadline.textContent = `${article.headline}`
+  image.src = `${article.authorPhoto}`
+  name.textContent = `By ${article.authorName}`
+
+  newCard.addEventListener('click', ()=>{
+    console.log(divHeadline)
+  })
+  return newCard
+  
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
